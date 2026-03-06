@@ -1,16 +1,115 @@
-# React + Vite
+# Meharoli Travels 🏯
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern travel agency website for **Meharoli Travels**, showcasing Jaipur tour packages with an interactive hero video, enquiry form, day-wise itinerary, and WhatsApp integration.
 
-Currently, two official plugins are available:
+Built with **React 19** + **Vite 7**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Prerequisites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Make sure you have the following installed on your machine:
 
-## Expanding the ESLint configuration
+| Tool    | Version            | Download           |
+| ------- | ------------------ | ------------------ |
+| Node.js | 18 or higher       | https://nodejs.org |
+| npm     | comes with Node.js | —                  |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Verify your versions:
+
+```bash
+node -v
+npm -v
+```
+
+---
+
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/abhisheksaini3232/meharoli_travels.git
+cd meharoli_travels
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Start the development server
+
+```bash
+npm run dev
+```
+
+The app will be available at **http://localhost:5173** (or the next available port shown in your terminal).
+
+---
+
+## Available Scripts
+
+| Command           | Description                                    |
+| ----------------- | ---------------------------------------------- |
+| `npm run dev`     | Start local development server with hot-reload |
+| `npm run build`   | Build optimised production bundle into `dist/` |
+| `npm run preview` | Preview the production build locally           |
+| `npm run lint`    | Run ESLint across all source files             |
+
+---
+
+## Project Structure
+
+```
+meharoli_travels/
+├── public/
+│   ├── pictures/              # Jaipur section images
+│   │   └── main-section/      # Hero slideshow images
+│   └── 236224_tiny.mp4        # Hero background video
+├── src/
+│   ├── App.jsx                # Main React component
+│   ├── App.css                # All styles
+│   ├── index.css              # Global resets
+│   └── main.jsx               # React entry point
+├── index.html
+├── vite.config.js
+└── package.json
+```
+
+---
+
+## Configuration
+
+### WhatsApp Number
+
+Open `src/App.jsx` and replace the placeholder number with your real WhatsApp business number (include country code, no `+`):
+
+```js
+const whatsappNumber = "919999999999"; // e.g. 919876543210 for +91 98765 43210
+```
+
+---
+
+## Building for Production
+
+```bash
+npm run build
+```
+
+Output is generated in the `dist/` folder. You can deploy it to any static hosting service (Vercel, Netlify, GitHub Pages, etc.).
+
+To preview the production build locally before deploying:
+
+```bash
+npm run preview
+```
+
+---
+
+## Tech Stack
+
+- [React 19](https://react.dev)
+- [Vite 7](https://vitejs.dev)
+- CSS (no external UI library)
