@@ -83,7 +83,7 @@ main {
 .hero {
   position: relative;
   margin-top: 0;
-  padding: 2rem 1.5rem;
+  padding: 0;
   border-radius: 0;
   color: #f9fafb;
   min-height: 100vh;
@@ -91,10 +91,6 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url("/pictures/beautiful-shot-udaipur-from-window-city-palace.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   overflow: hidden;
 }
 
@@ -102,13 +98,19 @@ main {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 247, 237, 0.45);
-  z-index: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.1) 45%,
+    rgba(15, 10, 5, 0.65) 100%
+  );
+  z-index: 1;
 }
 
 .hero-frame {
   position: relative;
-  width: min(1120px, 100%);
+  flex: 1;
+  min-width: 0;
   aspect-ratio: 16 / 9;
   border-radius: 1.75rem;
   overflow: hidden;
@@ -137,35 +139,81 @@ main {
   }
 }
 
-.hero-video {
+.hero-img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center 30%;
+  z-index: 0;
+}
+
+/* hero stage layout */
+.hero-stage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: calc(1120px + 11rem);
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.hero-side-text {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: clamp(1.1rem, 2.4vw, 2.4rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(253, 230, 138, 0.97);
+  text-shadow:
+    0 2px 24px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(245, 158, 11, 0.6);
+  padding: 0.5rem 0.7rem;
+  flex-shrink: 0;
+  line-height: 1;
+  user-select: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  animation: brandEntrance 1.2s 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-side-text.left {
+  left: 1.5rem;
+}
+
+.hero-side-text.right {
+  right: 1.5rem;
+}
+
+.hero-logo {
+  width: clamp(80px, 14vw, 160px);
+  height: auto;
+  filter: drop-shadow(0 2px 20px rgba(0, 0, 0, 0.6));
+  animation: brandEntrance 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(15, 23, 42, 0.35),
-    rgba(15, 23, 42, 0.9)
-  );
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-center {
   position: relative;
-  z-index: 1;
-  height: 100%;
-  padding: 0 1.5rem 33%;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 0 1.5rem;
+  margin-bottom: 5vh;
 }
 
 .hero-brand {
@@ -300,12 +348,13 @@ main {
 
 .btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 15px 30px rgba(15, 23, 42, 0.7);
+  box-shadow: 0 15px 30px rgba(249, 115, 22, 0.35);
 }
 
 .btn.secondary:hover,
 .btn.ghost:hover {
-  background: rgba(15, 23, 42, 0.95);
+  background: #fff7ed;
+  border-color: #fb923c;
 }
 
 /* Highlights strip under hero */
@@ -326,11 +375,12 @@ main {
 .highlight-item {
   padding: 0.7rem 1.4rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, #020617, #050816);
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(15, 23, 42, 0.95);
-  color: #facc15;
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(251, 146, 60, 0.18);
+  border: 1px solid rgba(251, 146, 60, 0.35);
+  color: #c2410c;
   font-size: 0.86rem;
+  font-weight: 600;
   text-align: center;
   white-space: nowrap;
 }
@@ -677,8 +727,106 @@ main {
   color: #6b7280;
 }
 
+/* ─── ENQUIRY FULL-BLEED wrapper ─── */
+.enquiry-fullbleed {
+  position: relative;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  width: 100vw;
+  overflow: hidden;
+}
+
 .enquiry {
-  margin-top: 2.4rem;
+  position: relative;
+  z-index: 1;
+  padding-top: 2.4rem;
+  padding-bottom: 2.8rem;
+}
+
+/* ─── BUS ANIMATION SCENE ─── */
+.bus-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.bus-sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    #fef3c7 0%,
+    #fed7aa 40%,
+    #fca5a5 75%,
+    #fde68a 100%
+  );
+  opacity: 0.55;
+}
+
+.bus-buildings {
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+  height: 120px;
+}
+
+.bus-buildings svg {
+  width: 100%;
+  height: 100%;
+}
+
+.bus-road-strip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: #78350f;
+  opacity: 0.18;
+}
+
+.bus-road-strip::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  transform: translateY(-50%);
+  background: repeating-linear-gradient(
+    to right,
+    #fef3c7 0px,
+    #fef3c7 40px,
+    transparent 40px,
+    transparent 80px
+  );
+  opacity: 0.7;
+}
+
+.bus-anim {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  will-change: transform;
+  animation: busRide 16s linear infinite;
+}
+
+@keyframes busRide {
+  0% {
+    transform: translateX(-540px);
+  }
+  44% {
+    transform: translateX(calc(100vw + 80px));
+  }
+  44.01% {
+    transform: translateX(-540px);
+  }
+  100% {
+    transform: translateX(-540px);
+  }
 }
 
 .enquiry-layout {
@@ -689,14 +837,26 @@ main {
   padding: 0 1.5rem;
 }
 
+.enquiry .section-heading {
+  max-width: 640px;
+  margin: 0 auto 1.75rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
 .enquiry-form {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 1.3rem;
   padding: 1.4rem 1.4rem 1.25rem;
   border: 1px solid rgba(209, 213, 219, 0.9);
   box-shadow: 0 18px 45px rgba(148, 163, 184, 0.3);
   max-width: 640px;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .form-row {
@@ -801,11 +961,316 @@ main {
   color: #6b7280;
 }
 
+/* ── TESTIMONIALS ── */
+.testimonials {
+  margin-top: 3rem;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.4rem;
+}
+
+.testimonial-card {
+  background: #ffffff;
+  border-radius: 1.3rem;
+  padding: 1.5rem 1.4rem;
+  border: 1px solid rgba(251, 146, 60, 0.2);
+  box-shadow: 0 8px 30px rgba(251, 146, 60, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.testimonial-stars {
+  font-size: 1rem;
+  color: #f59e0b;
+  letter-spacing: 0.05em;
+}
+
+.testimonial-text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #374151;
+  flex: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.testimonial-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #fb923c, #f97316);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.testimonial-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.testimonial-city {
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
+
+/* ── CARS ── */
+.cars-section {
+  margin-top: 3rem;
+}
+
+.cars-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cars-scroll-btn {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 146, 60, 0.4);
+  background: #fff;
+  color: #ea580c;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 150ms,
+    box-shadow 150ms;
+  box-shadow: 0 4px 12px rgba(251, 146, 60, 0.15);
+  z-index: 1;
+}
+
+.cars-scroll-btn:hover {
+  background: #fff7ed;
+  box-shadow: 0 6px 18px rgba(251, 146, 60, 0.3);
+}
+
+.cars-carousel {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 0 1rem;
+  scrollbar-width: none;
+}
+
+.cars-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.car-card {
+  flex: 0 0 240px;
+  border-radius: 1.3rem;
+  background: #ffffff;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  box-shadow: 0 8px 30px rgba(148, 163, 184, 0.2);
+  overflow: hidden;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-card-top {
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.car-icon {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.car-type-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+}
+
+.car-card-body {
+  padding: 1.1rem 1.1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.car-name {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #111827;
+}
+
+.car-capacity {
+  margin: 0;
+  font-size: 0.84rem;
+  color: #6b7280;
+}
+
+.car-features {
+  list-style: none;
+  padding: 0;
+  margin: 0.15rem 0 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.car-features li {
+  font-size: 0.72rem;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  background: #f9fafb;
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  color: #374151;
+}
+
+.car-price {
+  margin: 0 0 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+/* ── RAJASTHAN TOURISM CERTIFICATE ── */
+.cert-section {
+  margin-top: 3rem;
+}
+
+.cert-inner {
+  background: linear-gradient(135deg, #fff7ed, #fef3c7);
+  border: 2px solid rgba(251, 146, 60, 0.35);
+  border-radius: 1.6rem;
+  padding: 2.4rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  box-shadow: 0 12px 40px rgba(251, 146, 60, 0.15);
+}
+
+.cert-badge-wrap {
+  flex-shrink: 0;
+}
+
+.cert-badge {
+  width: 140px;
+  height: 140px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #fb923c, #f59e0b);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  box-shadow:
+    0 0 0 6px rgba(251, 146, 60, 0.18),
+    0 0 0 12px rgba(251, 146, 60, 0.08);
+  text-align: center;
+  padding: 1rem;
+}
+
+.cert-badge-seal {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.cert-badge-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.cert-badge-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.cert-badge-sub {
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.3;
+}
+
+.cert-content h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.6rem;
+  color: #92400e;
+}
+
+.cert-content p {
+  margin: 0 0 0.9rem;
+  font-size: 0.92rem;
+  color: #78350f;
+  line-height: 1.65;
+}
+
+.cert-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cert-points li {
+  font-size: 0.88rem;
+  color: #713f12;
+  font-weight: 500;
+}
+
 /* ─── Tablet (≤ 900px) ─── */
 @media (max-width: 900px) {
   .hero {
     min-height: 100svh;
     padding: 1.2rem 1rem;
+  }
+
+  .hero-stage {
+    max-width: 100%;
+  }
+
+  .hero-side-text {
+    font-size: clamp(0.85rem, 2.2vw, 1.4rem);
+    padding: 0.4rem 0.5rem;
+    letter-spacing: 0.25em;
   }
 
   .hero-frame {
@@ -837,6 +1302,21 @@ main {
   .footer-columns {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .cert-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 1.8rem 1.4rem;
+  }
+
+  .cert-points {
+    align-items: center;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -896,6 +1376,10 @@ main {
     width: clamp(28px, 8vw, 50px);
   }
 
+  .hero-side-text {
+    display: none;
+  }
+
   .hero-whatsapp-btn {
     width: 100%;
     max-width: 360px;
@@ -933,6 +1417,15 @@ main {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     padding: 0 0.75rem 2rem;
+  }
+
+  /* Cars */
+  .cars-scroll-btn {
+    display: none;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
   }
 
   /* Form */
