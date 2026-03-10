@@ -191,6 +191,14 @@ function App() {
       text: "The WhatsApp support was quick and very helpful. They customised the trip according to our budget and we got more than what we expected. 5 stars!",
       avatar: "DA",
     },
+    {
+      id: 6,
+      name: "Neha Joshi",
+      city: "Ahmedabad",
+      rating: 5,
+      text: "Travelled with my parents for the first time and Meharoli Travels took care of everything. Senior-friendly hotels, easy pace itinerary and a very caring driver. Truly stress-free!",
+      avatar: "NJ",
+    },
   ];
 
   const cars = [

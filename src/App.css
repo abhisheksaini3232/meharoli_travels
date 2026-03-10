@@ -1349,6 +1349,10 @@ main {
   display: contents;
 }
 
+.testimonials-track > [aria-hidden="true"] {
+  display: none;
+}
+
 .testimonial-card {
   background: #ffffff;
   border-radius: 1.3rem;
@@ -1858,6 +1862,10 @@ main {
     gap: 1rem;
     width: max-content;
     animation: testimonialsScroll 28s linear infinite;
+  }
+
+  .testimonials-track > [aria-hidden="true"] {
+    display: flex;
   }
 
   .testimonials-track:hover {
