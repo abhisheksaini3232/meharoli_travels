@@ -265,44 +265,75 @@ function App() {
   return (
     <div className="app">
       <section className="hero" id="top">
-        <img
-          className="hero-img"
-          src="/pictures/ashwani999-jaipur-8185377_1920.jpg"
-          alt="Hawa Mahal, Jaipur"
-        />
-        <div className="hero-overlay" aria-hidden="true" />
-        <span className="hero-side-text left" aria-hidden="true">
-          MEHAROLI
-        </span>
-        <span className="hero-side-text right" aria-hidden="true">
-          TRAVELS
-        </span>
-        <div className="hero-center">
-          <div className="hero-brand">
-            <img
-              className="hero-logo"
-              src="/pictures/main-section/logo-removebg-preview.png"
-              alt="Meharoli Travels logo"
-            />
-            <div className="hero-title-accent" aria-hidden="true">
-              <span className="accent-line" />
-              <span className="accent-diamond">✦</span>
-              <span className="accent-line" />
+        {/* Decorative background blobs */}
+        <div className="hero-bg-effects" aria-hidden="true">
+          <div className="hero-blob b1" />
+          <div className="hero-blob b2" />
+          <div className="hero-blob b3" />
+          <div className="hero-dots" />
+        </div>
+
+        {/* Left – branding & CTA */}
+        <div className="hero-left">
+          <span className="hero-badge">
+            ⭐ Rajasthan Certified Travel Partner
+          </span>
+          <h1 className="hero-title">
+            <span className="hero-title-line line-1">Meharoli</span>
+            <span className="hero-title-line line-3">Travels</span>
+          </h1>
+          <p className="hero-tagline">
+            Your trusted guide to Jaipur &amp; Rajasthan — crafting
+            unforgettable journeys since 2014.
+          </p>
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <strong>500+</strong>
+              <small>Happy Clients</small>
             </div>
-            <p className="hero-tagline">Trusted Travel Partner from Jaipur</p>
+            <div className="hero-stat-divider" />
+            <div className="hero-stat">
+              <strong>10+</strong>
+              <small>Years Experience</small>
+            </div>
+            <div className="hero-stat-divider" />
+            <div className="hero-stat">
+              <strong>4.9★</strong>
+              <small>Google Rating</small>
+            </div>
+          </div>
+          <div className="hero-cta-row">
+            <button
+              type="button"
+              className="btn primary"
+              onClick={() =>
+                openWhatsApp(
+                  "Hi Meharoli Travels, I would like to plan my Jaipur trip.",
+                )
+              }
+            >
+              Plan My Trip
+            </button>
+            <a href="#packages" className="btn ghost">
+              View Packages
+            </a>
           </div>
         </div>
-        <button
-          type="button"
-          className="btn primary hero-whatsapp-btn"
-          onClick={() =>
-            openWhatsApp(
-              "Hi Meharoli Travels, I would like to plan my Jaipur trip.",
-            )
-          }
-        >
-          Connect on WhatsApp
-        </button>
+
+        {/* Right – photo */}
+        <div className="hero-right">
+          <div className="hero-img-wrap">
+            <img
+              className="hero-img"
+              src="/pictures/main-section/generated-image (3).png"
+              alt="Jaipur, Rajasthan"
+            />
+            <div className="hero-img-badge">
+              <strong>10+</strong>
+              <small>Years of Experience</small>
+            </div>
+          </div>
+        </div>
       </section>
 
       <main>
