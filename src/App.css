@@ -466,6 +466,14 @@ main {
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
 }
 
+.hero-logo {
+  height: 72px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -599,17 +607,47 @@ main {
 
 /* Highlights strip under hero */
 .highlights {
-  padding: 1.5rem 1.5rem 0.75rem;
+  padding: 1.5rem 0 0.75rem;
+  overflow: hidden;
 }
 
 .highlights-strip {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0.25rem 0.5rem;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+.highlights-track {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem 1rem;
+  gap: 1rem;
+  width: max-content;
+  animation: marqueeScroll 22s linear infinite;
+}
+
+.highlights-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .highlight-item {
@@ -644,6 +682,10 @@ main {
 
 .packages {
   margin-top: 1.75rem;
+}
+
+.packages-carousel-wrap {
+  /* desktop: no change */
 }
 
 .packages-grid {
@@ -838,6 +880,106 @@ main {
   margin-top: 3.4rem;
 }
 
+/* ── DOUBLE DECKER STAGE ── */
+.decker-stage {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.decker-stage-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("/pictures/main-section/jaipur-road-bg.png");
+  background-size: 100% 100%;
+  background-position: center;
+  opacity: 0.85;
+}
+
+.decker-bus-perspective {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  height: 220px;
+  width: auto;
+  transform: translateX(-50%) scaleX(-1);
+  mix-blend-mode: multiply;
+  filter: drop-shadow(-18px 24px 28px rgba(0, 0, 0, 0.75));
+  animation: deckerComesAndGoes 8s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes deckerComesAndGoes {
+  0% {
+    transform: translateX(60vw) scaleX(-1) scale(0.18);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  45% {
+    transform: translateX(-50%) scaleX(-1) scale(1);
+    opacity: 1;
+  }
+  55% {
+    transform: translateX(-50%) scaleX(-1) scale(1);
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-160vw) scaleX(-1) scale(0.18);
+    opacity: 0;
+  }
+}
+
+.decker-stage-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 0.75rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, transparent 60%);
+}
+
+.decker-stage-label {
+  color: #fef3c7;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+.decker-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #f97316, #ef4444);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.28rem 0.8rem;
+  border-radius: 2rem;
+  margin: 0.8rem 0 0.4rem;
+  letter-spacing: 0.04em;
+}
+
+.decker-price-tag {
+  font-size: 0.95rem;
+  color: #374151;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.jaipur-itinerary-sub {
+  font-size: 0.82rem;
+  color: #6b7280;
+  margin: -0.5rem 0 1rem;
+  font-weight: 500;
+}
+
 .jaipur-details-inner {
   max-width: 1120px;
   margin: 0 auto;
@@ -864,6 +1006,30 @@ main {
   background-size: cover;
   background-position: center;
   aspect-ratio: 16 / 9;
+}
+
+.decker-bus-showcase {
+  position: relative;
+  border-radius: 1.4rem;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #0f172a;
+}
+
+.decker-bus-showcase .bus-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("/pictures/main-section/jaipur-road-bg.png");
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.decker-bus-showcase .bus-anim {
+  bottom: 8px;
+}
+
+.decker-bus-showcase .bus-img {
+  height: 200px;
 }
 
 .jaipur-banner-text {
@@ -990,82 +1156,49 @@ main {
   overflow: hidden;
   pointer-events: none;
   user-select: none;
+  background-image: url("/pictures/main-section/jaipur-road-bg.png");
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .bus-sky {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    #fef3c7 0%,
-    #fed7aa 40%,
-    #fca5a5 75%,
-    #fde68a 100%
-  );
-  opacity: 0.55;
+  display: none;
 }
 
 .bus-buildings {
-  position: absolute;
-  bottom: 28px;
-  left: 0;
-  right: 0;
-  height: 120px;
-}
-
-.bus-buildings svg {
-  width: 100%;
-  height: 100%;
+  display: none;
 }
 
 .bus-road-strip {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 30px;
-  background: #78350f;
-  opacity: 0.18;
-}
-
-.bus-road-strip::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 3px;
-  transform: translateY(-50%);
-  background: repeating-linear-gradient(
-    to right,
-    #fef3c7 0px,
-    #fef3c7 40px,
-    transparent 40px,
-    transparent 80px
-  );
-  opacity: 0.7;
+  display: none;
 }
 
 .bus-anim {
   position: absolute;
-  bottom: 10px;
+  bottom: 18px;
   left: 0;
   will-change: transform;
-  animation: busRide 16s linear infinite;
+  animation: busRide 12s linear infinite;
+}
+
+.bus-img {
+  height: 340px;
+  width: auto;
+  display: block;
+  mix-blend-mode: multiply;
+  object-fit: contain;
+  transform: scaleX(-1) perspective(1000px) rotateX(-2deg);
+  filter: drop-shadow(-20px 28px 32px rgba(0, 0, 0, 0.72))
+    drop-shadow(-5px 8px 14px rgba(0, 0, 0, 0.45));
 }
 
 @keyframes busRide {
   0% {
     transform: translateX(-540px);
   }
-  44% {
-    transform: translateX(calc(100vw + 80px));
-  }
-  44.01% {
-    transform: translateX(-540px);
-  }
   100% {
-    transform: translateX(-540px);
+    transform: translateX(calc(100vw + 540px));
   }
 }
 
@@ -1210,6 +1343,10 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.4rem;
+}
+
+.testimonials-track {
+  display: contents;
 }
 
 .testimonial-card {
@@ -1649,9 +1786,34 @@ main {
     font-size: 1.45rem;
   }
 
-  /* Packages */
+  /* Packages – horizontal scroll snap carousel */
+  .packages-carousel-wrap {
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 1rem 1rem;
+    margin: 0 -0.75rem;
+    /* hide scrollbar */
+    scrollbar-width: none;
+  }
+  .packages-carousel-wrap::-webkit-scrollbar {
+    display: none;
+  }
+
   .packages-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    width: max-content;
+    grid-template-columns: unset;
+  }
+
+  .package-card {
+    width: 80vw;
+    max-width: 300px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
   }
 
   /* Services */
@@ -1674,6 +1836,47 @@ main {
 
   .testimonials-grid {
     grid-template-columns: 1fr;
+    overflow: hidden;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%
+    );
+  }
+
+  .testimonials-track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: testimonialsScroll 28s linear infinite;
+  }
+
+  .testimonials-track:hover {
+    animation-play-state: paused;
+  }
+
+  .testimonial-card {
+    width: 82vw;
+    max-width: 320px;
+    flex-shrink: 0;
+  }
+
+  @keyframes testimonialsScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
   /* Form */
@@ -1688,6 +1891,15 @@ main {
 
   .form-row {
     flex-direction: column;
+  }
+
+  /* Double Decker showcase – scale bus proportionally with smaller container */
+  .decker-bus-showcase .bus-img {
+    height: 30vw;
+  }
+
+  .decker-bus-showcase .bus-anim {
+    bottom: 4px;
   }
 
   /* Footer */
