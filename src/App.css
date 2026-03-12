@@ -254,7 +254,8 @@ main {
   margin: 0;
   line-height: 0.88;
   font-weight: 900;
-  letter-spacing: -0.03em;
+  font-family: "Playfair Display", Georgia, serif;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   animation: titleReveal 3.5s 0.6s ease-in-out both;
   /* Make the title block fill the full left column width */
@@ -264,13 +265,12 @@ main {
 .hero-title-line {
   display: block;
   /* fluid font that fills the column */
-  font-size: clamp(4.5rem, 13vw, 11rem);
+  font-size: clamp(3rem, 7.5vw, 7rem);
   white-space: nowrap;
 }
 
 .line-1 {
   color: #0f172a;
-  font-style: italic;
 }
 
 .line-2 {
@@ -441,7 +441,7 @@ main {
   flex: 1;
   min-width: 0;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -981,13 +981,10 @@ main {
 }
 
 .jaipur-details-inner {
-  max-width: 1120px;
+  max-width: 680px;
   margin: 0 auto;
   padding: 0 1.5rem;
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.1fr);
-  gap: 2rem;
-  align-items: flex-start;
+  display: block;
 }
 
 .jaipur-banner {
@@ -1326,6 +1323,60 @@ main {
   font-size: 0.85rem;
 }
 
+.footer-socials {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #fff;
+  text-decoration: none;
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    opacity 150ms ease;
+  flex-shrink: 0;
+}
+
+.social-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.social-btn.whatsapp {
+  background: #25d366;
+}
+.social-btn.instagram {
+  background: linear-gradient(
+    45deg,
+    #f09433,
+    #e6683c,
+    #dc2743,
+    #cc2366,
+    #bc1888
+  );
+}
+.social-btn.youtube {
+  background: #ff0000;
+}
+.social-btn.facebook {
+  background: #1877f2;
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(31, 41, 55, 1);
   text-align: center;
@@ -1642,7 +1693,7 @@ main {
   .hero {
     flex-direction: column;
     min-height: 100svh;
-    padding: 5.5rem 2rem 3rem;
+    padding: 2rem 2rem 3rem;
     gap: 2.5rem;
     align-items: stretch;
   }
@@ -1741,7 +1792,7 @@ main {
   /* Hero */
   .hero {
     flex-direction: column;
-    padding: 5rem 1.25rem 3rem;
+    padding: 2rem 1.25rem 3rem;
     gap: 2rem;
     align-items: stretch;
   }
@@ -1766,7 +1817,13 @@ main {
   }
 
   .hero-title {
-    font-size: clamp(2.2rem, 8vw, 3.5rem);
+    font-size: unset;
+  }
+
+  .hero-title-line {
+    font-size: clamp(1.8rem, 10.5vw, 4.5rem);
+    white-space: normal;
+    word-break: break-word;
   }
 
   .hero-whatsapp-btn {

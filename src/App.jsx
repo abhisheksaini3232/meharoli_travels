@@ -92,33 +92,6 @@ function App() {
     },
   ];
 
-  const jaipurItinerary = [
-    {
-      day: 1,
-      title: "Double Decker Boarding & City Orientation",
-      details:
-        "Pickup from hotel in our iconic Double Decker bus. Open-top upper deck ride through the walled Pink City — see Hawa Mahal, Tripolia Gate and Chhoti Chaupar while the guide narrates Jaipur's royal history.",
-    },
-    {
-      day: 2,
-      title: "Heritage Fort Circuit on Deck",
-      details:
-        "Morning Double Decker cruise to Amer Fort, Jal Mahal scenic stop and Nahargarh viewpoint. The elevated open-top deck offers panoramic shots of the Aravalli hills and fort ramparts impossible from a regular cab.",
-    },
-    {
-      day: 3,
-      title: "Bazaar Lap & Chokhi Dhani Evening",
-      details:
-        "Double Decker tour through Johari Bazaar, Bapu Bazaar and Nehru Bazaar. Shop for gems, textiles and blue pottery. Evening village dinner at Chokhi Dhani with folk music and cultural shows.",
-    },
-    {
-      day: 4,
-      title: "Sunrise Ride & Departure",
-      details:
-        "Optional early-morning Double Decker sunrise lap around the City Palace walls before check-out. Transfer to airport / railway station with a royal send-off and unforgettable Jaipur memories.",
-    },
-  ];
-
   const whyJaipur = [
     {
       id: 1,
@@ -156,7 +129,7 @@ function App() {
       name: "Priya Sharma",
       city: "Delhi",
       rating: 5,
-      text: "Meharoli Travels made our Jaipur trip absolutely magical! The hotel was perfect, the guide was knowledgeable and everything was seamlessly organized. Highly recommended!",
+      text: "Meharoli Tours and Travels made our Jaipur trip absolutely magical! The hotel was perfect, the guide was knowledgeable and everything was seamlessly organized. Highly recommended!",
       avatar: "PS",
     },
     {
@@ -196,7 +169,7 @@ function App() {
       name: "Neha Joshi",
       city: "Ahmedabad",
       rating: 5,
-      text: "Travelled with my parents for the first time and Meharoli Travels took care of everything. Senior-friendly hotels, easy pace itinerary and a very caring driver. Truly stress-free!",
+      text: "Travelled with my parents for the first time and Meharoli Tours and Travels took care of everything. Senior-friendly hotels, easy pace itinerary and a very caring driver. Truly stress-free!",
       avatar: "NJ",
     },
   ];
@@ -274,7 +247,7 @@ function App() {
         <div className="hero-left">
           <img
             src="/pictures/main-section/logo-removebg-preview.png"
-            alt="Meharoli Travels Logo"
+            alt="Meharoli Tours and Travels Logo"
             className="hero-logo"
           />
           <span className="hero-badge">
@@ -282,7 +255,7 @@ function App() {
           </span>
           <h1 className="hero-title">
             <span className="hero-title-line line-1">Meharoli</span>
-            <span className="hero-title-line line-3">Travels</span>
+            <span className="hero-title-line line-3">Tours &amp; Travels</span>
           </h1>
           <p className="hero-tagline">
             Your trusted guide to Jaipur &amp; Rajasthan — crafting
@@ -310,7 +283,7 @@ function App() {
               className="btn primary"
               onClick={() =>
                 openWhatsApp(
-                  "Hi Meharoli Travels, I would like to plan my Jaipur trip.",
+                  "Hi Meharoli Tours and Travels, I would like to plan my Jaipur trip.",
                 )
               }
             >
@@ -507,29 +480,6 @@ function App() {
                 Book Double Decker Tour
               </button>
             </div>
-            <div className="jaipur-itinerary">
-              <h2 className="jaipur-itinerary-title">
-                Special Double Decker Package
-              </h2>
-              <p className="jaipur-itinerary-sub">
-                4 Days · Open-Top Bus · Guided · All Major Attractions
-              </p>
-              <div className="jaipur-itinerary-list">
-                {jaipurItinerary.map((day) => (
-                  <details
-                    key={day.day}
-                    className="itinerary-day"
-                    open={day.day === 1}
-                  >
-                    <summary>
-                      <span>{`Day ${day.day}: ${day.title}`}</span>
-                      <span className="day-toggle-icon">▾</span>
-                    </summary>
-                    <p>{day.details}</p>
-                  </details>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
@@ -579,7 +529,7 @@ function App() {
                         className="btn ghost full"
                         onClick={() =>
                           openWhatsApp(
-                            `Hi Meharoli Travels, I want to know more about the ${pkg.name} package.`,
+                            `Hi Meharoli Tours and Travels, I want to know more about the ${pkg.name} package.`,
                           )
                         }
                       >
@@ -687,7 +637,7 @@ function App() {
                       className="btn primary full"
                       onClick={() =>
                         openWhatsApp(
-                          `Hi Meharoli Travels, I want to book a ${car.name} (${car.type}) for my Jaipur trip.`,
+                          `Hi Meharoli Tours and Travels, I want to book a ${car.name} (${car.type}) for my Jaipur trip.`,
                         )
                       }
                     >
@@ -727,9 +677,9 @@ function App() {
             <div className="cert-content">
               <h2>Trusted by Rajasthan Tourism</h2>
               <p>
-                Meharoli Travels is an officially recognized travel operator
-                under the <strong>Rajasthan Tourism Department</strong>,
-                Government of Rajasthan. Our registration ensures you travel
+                Meharoli Tours and Travels is an officially recognized travel
+                operator under the <strong>Rajasthan Tourism Department</strong>
+                , Government of Rajasthan. Our registration ensures you travel
                 with a licensed, accountable and government-verified agency.
               </p>
               <ul className="cert-points">
@@ -780,15 +730,15 @@ function App() {
               </p>
               <p>
                 Whether you are planning a short weekend escape or an extended
-                Rajasthan circuit, Meharoli Travels designs Jaipur holidays that
-                match your pace and budget.
+                Rajasthan circuit, Meharoli Tours and Travels designs Jaipur
+                holidays that match your pace and budget.
               </p>
               <button
                 type="button"
                 className="btn primary about-btn"
                 onClick={() =>
                   openWhatsApp(
-                    "Hi Meharoli Travels, I want to talk to a Jaipur travel expert.",
+                    "Hi Meharoli Tours and Travels, I want to talk to a Jaipur travel expert.",
                   )
                 }
               >
@@ -830,7 +780,7 @@ function App() {
           <div className="footer-brand">
             <div className="logo-mark">MT</div>
             <div>
-              <div className="brand-name">Meharoli Travels</div>
+              <div className="brand-name">Meharoli Tours and Travels</div>
               <div className="brand-tagline">
                 Jaipur &amp; Rajasthan specialists
               </div>
@@ -860,18 +810,66 @@ function App() {
                 className="btn primary footer-whatsapp"
                 onClick={() =>
                   openWhatsApp(
-                    "Hi Meharoli Travels, I would like to plan my Jaipur holiday.",
+                    "Hi Meharoli Tours and Travels, I would like to plan my Jaipur holiday.",
                   )
                 }
               >
                 Chat on WhatsApp
               </button>
+              <div className="footer-socials">
+                <a
+                  href="https://wa.me/919999999999"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-btn whatsapp"
+                  aria-label="WhatsApp"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.407A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.958 7.958 0 01-4.078-1.123l-.292-.173-3.027.854.855-3.02-.19-.31A7.96 7.96 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://instagram.com/meharolitravels"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-btn instagram"
+                  aria-label="Instagram"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://youtube.com/@meharolitravels"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-btn youtube"
+                  aria-label="YouTube"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://facebook.com/meharolitravels"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-btn facebook"
+                  aria-label="Facebook"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
         <div className="footer-bottom">
           <p>
-            © {new Date().getFullYear()} Meharoli Travels. All rights reserved.
+            © {new Date().getFullYear()} Meharoli Tours and Travels. All rights
+            reserved.
           </p>
         </div>
       </footer>
