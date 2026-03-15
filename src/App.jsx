@@ -1,9 +1,29 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
+
+const jaipurSlides = [
+  "/pictures/main-section/Jaipur_1.jpg",
+  "/pictures/main-section/Jaipur_2.jpg",
+  "/pictures/main-section/Jaipur_3.jpg",
+  "/pictures/main-section/Jaipur_4.jpg",
+  "/pictures/main-section/Jaipur_5.jpg",
+  "/pictures/main-section/Jaipur_6.jpg",
+  "/pictures/main-section/Jaipur_7.jpg",
+];
 
 function App() {
   const whatsappNumber = "919999999999"; // TODO: replace with real WhatsApp number
   const carScrollRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const [heroSlide, setHeroSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroSlide((prev) => (prev + 1) % jaipurSlides.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
 
   const scrollCars = (dir) => {
     if (carScrollRef.current) {
@@ -49,7 +69,7 @@ function App() {
       tag: "Heritage",
       destinations: ["Amer Fort", "Jal Mahal", "Nahargarh"],
       priceFrom: "₹8,999",
-      image: "/pictures/roaming_revolution-patrika-gate-6626520.jpg",
+      image: "/pictures/main-section/Jaipur_2.jpg",
     },
     {
       id: 3,
@@ -57,7 +77,7 @@ function App() {
       tag: "Markets",
       destinations: ["Johari Bazaar", "Bapu Bazaar", "Chokhi Dhani"],
       priceFrom: "₹9,499",
-      image: "/pictures/praful_sharma-jaipur-4027735_1920.jpg",
+      image: "/pictures/main-section/Jaipur_3.jpg",
     },
   ];
 
@@ -74,21 +94,21 @@ function App() {
       title: "Tourist Attractions",
       description:
         "Guided visits to Hawa Mahal, Amer Fort, City Palace, Jantar Mantar and more.",
-      image: "/pictures/roaming_revolution-patrika-gate-6626520.jpg",
+      image: "/pictures/main-section/Jaipur_4.jpg",
     },
     {
       id: 3,
       title: "Local Experiences",
       description:
         "Food walks, cultural shows and authentic Rajasthani experiences curated for you.",
-      image: "/pictures/praful_sharma-jaipur-4027735_1920.jpg",
+      image: "/pictures/main-section/Jaipur_5.jpg",
     },
     {
       id: 4,
       title: "Transport & Travel Tips",
       description:
         "Airport and railway station transfers, local cabs and personalised assistance.",
-      image: "/pictures/roaming_revolution-patrika-gate-6626520.jpg",
+      image: "/pictures/main-section/Jaipur_6.jpg",
     },
   ];
 
@@ -105,21 +125,21 @@ function App() {
       title: "Premium Support",
       description:
         "Dedicated trip coordinator and on-ground support throughout your stay.",
-      image: "/pictures/roaming_revolution-patrika-gate-6626520.jpg",
+      image: "/pictures/main-section/Jaipur_7.jpg",
     },
     {
       id: 3,
       title: "Secure & Transparent",
       description:
         "Clear inclusions, no hidden costs and secure payment options.",
-      image: "/pictures/praful_sharma-jaipur-4027735_1920.jpg",
+      image: "/pictures/main-section/Jaipur_2.jpg",
     },
     {
       id: 4,
       title: "Customer Friendly",
       description:
         "Custom itineraries for families, couples, and groups of all sizes.",
-      image: "/pictures/roaming_revolution-patrika-gate-6626520.jpg",
+      image: "/pictures/main-section/Jaipur_4.jpg",
     },
   ];
 
@@ -234,6 +254,102 @@ function App() {
 
   return (
     <div className="app">
+      <header className="app-header">
+        <div className="header-inner">
+          <a
+            href="#top"
+            className="header-brand"
+            onClick={() => setMenuOpen(false)}
+          >
+            <img
+              src="/pictures/main-section/logo-removebg-preview.png"
+              alt="Meharoli Tours Logo"
+              className="header-logo"
+            />
+            <div className="header-brand-text">
+              <span className="header-brand-name">
+                Mehar<span className="header-o">O</span>li
+              </span>
+              <span className="header-brand-sub">Tours &amp; Travels</span>
+            </div>
+          </a>
+
+          <nav
+            className={`header-nav${menuOpen ? " open" : ""}`}
+            aria-label="Main navigation"
+          >
+            <a
+              href="#top"
+              className="nav-item"
+              onClick={() => setMenuOpen(false)}
+            >
+              Home
+            </a>
+            <a
+              href="#packages"
+              className="nav-item"
+              onClick={() => setMenuOpen(false)}
+            >
+              Packages
+            </a>
+            <a
+              href="#double-decker-package"
+              className="nav-item"
+              onClick={() => setMenuOpen(false)}
+            >
+              Double Decker
+            </a>
+            <a
+              href="#cars"
+              className="nav-item"
+              onClick={() => setMenuOpen(false)}
+            >
+              Cars
+            </a>
+            <a
+              href="#services"
+              className="nav-item"
+              onClick={() => setMenuOpen(false)}
+            >
+              Services
+            </a>
+            <a
+              href="#testimonials"
+              className="nav-item"
+              onClick={() => setMenuOpen(false)}
+            >
+              Reviews
+            </a>
+            <a
+              href="#about"
+              className="nav-item"
+              onClick={() => setMenuOpen(false)}
+            >
+              About
+            </a>
+            <a
+              href="#enquiry-form-section"
+              className="nav-item nav-cta"
+              onClick={() => setMenuOpen(false)}
+            >
+              Book Now
+            </a>
+          </nav>
+
+          <button
+            type="button"
+            className="hamburger-btn"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+          >
+            <span className="h-line" />
+            <span className="h-line" />
+            <span className="h-line" />
+          </button>
+        </div>
+      </header>
+
       <section className="hero" id="top">
         {/* Decorative background blobs */}
         <div className="hero-bg-effects" aria-hidden="true">
@@ -241,21 +357,49 @@ function App() {
           <div className="hero-blob b2" />
           <div className="hero-blob b3" />
           <div className="hero-dots" />
+          {/* Travel ambience: clouds + stars */}
+          <div className="travel-fx" aria-hidden="true">
+            {/* Drifting clouds – left to right */}
+            <div className="cloud cloud-1" />
+            <div className="cloud cloud-2" />
+            <div className="cloud cloud-3" />
+            <div className="cloud cloud-4" />
+            {/* Twinkling stars */}
+            <div className="star s1" />
+            <div className="star s2" />
+            <div className="star s3" />
+            <div className="star s4" />
+            <div className="star s5" />
+            <div className="star s6" />
+            <div className="star s7" />
+            <div className="star s8" />
+          </div>
         </div>
 
         {/* Left – branding & CTA */}
         <div className="hero-left">
-          <img
-            src="/pictures/main-section/logo-removebg-preview.png"
-            alt="Meharoli Tours and Travels Logo"
-            className="hero-logo"
-          />
           <span className="hero-badge">
             ⭐ Rajasthan Certified Travel Partner
           </span>
           <h1 className="hero-title">
-            <span className="hero-title-line line-1">Meharoli</span>
-            <span className="hero-title-line line-3">Tours &amp; Travels</span>
+            <span aria-hidden="true">
+              <span className="hero-title-line line-1">
+                {"Mehar"}
+                <span className="title-o-letter">
+                  O
+                  <img
+                    src="/pictures/main-section/logo-removebg-preview.png"
+                    alt=""
+                    className="title-o-logo"
+                  />
+                </span>
+                {"li"}
+              </span>
+              <span className="hero-title-line line-3">
+                Tours &amp; Travels
+              </span>
+            </span>
+            <span className="sr-only">Meharoli Tours and Travels</span>
           </h1>
           <p className="hero-tagline">
             Your trusted guide to Jaipur &amp; Rajasthan — crafting
@@ -295,14 +439,17 @@ function App() {
           </div>
         </div>
 
-        {/* Right – photo */}
+        {/* Right – photo carousel */}
         <div className="hero-right">
           <div className="hero-img-wrap">
-            <img
-              className="hero-img"
-              src="/pictures/main-section/generated-image (3).png"
-              alt="Jaipur, Rajasthan"
-            />
+            {jaipurSlides.map((src, i) => (
+              <img
+                key={src}
+                className={`hero-img${i === heroSlide ? " active" : ""}`}
+                src={src}
+                alt={`Jaipur - view ${i + 1}`}
+              />
+            ))}
             <div className="hero-img-badge">
               <strong>10+</strong>
               <small>Years of Experience</small>
@@ -447,18 +594,11 @@ function App() {
         <section className="jaipur-details" id="double-decker-package">
           <div className="jaipur-details-inner">
             <div className="jaipur-banner">
-              <div className="decker-bus-showcase">
-                <div className="bus-bg" aria-hidden="true">
-                  <div className="bus-road-strip" />
-                  <div className="bus-anim">
-                    <img
-                      className="bus-img"
-                      src="/pictures/main-section/bus-doubledecker.png"
-                      alt="Double decker bus"
-                    />
-                  </div>
-                </div>
-              </div>
+              <img
+                className="decker-static-img"
+                src="/pictures/Double decker.png"
+                alt="Double Decker Bus - Jaipur Tour"
+              />
               <div className="decker-badge">
                 🚌 Special Double Decker Package
               </div>
@@ -692,7 +832,7 @@ function App() {
           </div>
         </section>
 
-        <section className="services">
+        <section className="services" id="services">
           <div className="section-heading services-heading">
             <h2>Complete Traveling Services</h2>
             <p>
@@ -715,7 +855,7 @@ function App() {
           </div>
         </section>
 
-        <section className="about-jaipur">
+        <section className="about-jaipur" id="about">
           <div className="about-jaipur-inner">
             <div className="about-jaipur-text">
               <h2>About Jaipur Tourism</h2>
