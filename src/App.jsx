@@ -256,6 +256,11 @@ function App() {
     <div className="app">
       <header className="app-header">
         <div className="header-inner">
+          <img
+            src="/pictures/main-section/guru_kripa.png"
+            alt="Guru Kripa"
+            className="guru-kripa-img"
+          />
           <a
             href="#top"
             className="header-brand"
@@ -938,8 +943,8 @@ function App() {
             <div className="footer-column">
               <h4>Contact</h4>
               <ul>
-                <li>Jaipur, Rajasthan</li>
-                <li>WhatsApp: +91-99999-99999</li>
+                <li>Dilip Singh Meharoli: +91 9829017853</li>
+                <li>Namrata Shekhawat: +91 88249 76479</li>
                 <li>Email: info@meharolitravels.com</li>
               </ul>
             </div>
