@@ -408,16 +408,16 @@ function App() {
           </h1>
           <p className="hero-tagline">
             Your trusted guide to Jaipur &amp; Rajasthan — crafting
-            unforgettable journeys since 2014.
+            unforgettable journeys since 2004.
           </p>
           <div className="hero-stats">
             <div className="hero-stat">
-              <strong>500+</strong>
+              <strong>1000+</strong>
               <small>Happy Clients</small>
             </div>
             <div className="hero-stat-divider" />
             <div className="hero-stat">
-              <strong>10+</strong>
+              <strong>20+</strong>
               <small>Years Experience</small>
             </div>
             <div className="hero-stat-divider" />
@@ -456,7 +456,7 @@ function App() {
               />
             ))}
             <div className="hero-img-badge">
-              <strong>10+</strong>
+              <strong>20+</strong>
               <small>Years of Experience</small>
             </div>
           </div>
@@ -473,7 +473,7 @@ function App() {
                 🛡️ 100% Secure &amp; Covid Safety
               </div>
               <div className="highlight-item">🌟 4.9 Star Google Reviews</div>
-              <div className="highlight-item">🏆 10+ Years of Experience</div>
+              <div className="highlight-item">🏆 20+ Years of Experience</div>
               <div className="highlight-item">
                 💳 Pay Online with Card &amp; UPI
               </div>
@@ -491,7 +491,7 @@ function App() {
                 🌟 4.9 Star Google Reviews
               </div>
               <div className="highlight-item" aria-hidden="true">
-                🏆 10+ Years of Experience
+                🏆 20+ Years of Experience
               </div>
               <div className="highlight-item" aria-hidden="true">
                 💳 Pay Online with Card &amp; UPI
@@ -613,7 +613,7 @@ function App() {
                 forts, bazaars and palaces with the wind in your hair.
               </p>
               <p className="decker-price-tag">
-                Starting at <strong>₹11,999</strong> / person
+                Starting at <strong>₹900</strong> / person
               </p>
               <button
                 type="button"
@@ -651,9 +651,6 @@ function App() {
                     <h3>{pkg.name}</h3>
                     <p className="package-destinations">
                       Destinations: {pkg.destinations.join(" · ")}
-                    </p>
-                    <p className="package-price">
-                      Starting at {pkg.priceFrom} per person
                     </p>
                     <ul className="package-includes">
                       <li>Comfortable hotels</li>
